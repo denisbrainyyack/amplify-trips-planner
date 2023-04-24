@@ -8,14 +8,11 @@ version: 1
 #        - amplifyPush --simple
 frontend:
   phases:
-    build-ios:
-      commands:
-        - flutter pub get
-        - flutter build ios --release --no-codesign
     build:
       commands:
         - flutter pub get
-        - flutter build apk --split-per-abi --no-tree-shake-icons
+        - flutter build ios --release --no-codesign
+#        - flutter build apk --split-per-abi --no-tree-shake-icons
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: build/app/outputs/flutter-apk/
