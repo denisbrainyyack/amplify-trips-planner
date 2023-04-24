@@ -9,11 +9,16 @@ version: 1
 frontend:
   phases:
     build:
-      commands: []
+      commands:
+        - flutter pub get
+        - flutter build apk --split-per-abi --no-tree-shake-icons
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: /
+    baseDirectory: build/app/outputs/flutter-apk/
     files:
       - '**/*'
   cache:
-    paths: []
+    paths:
+      - .dart_tool/
+      - build/
+      - pubspec.yaml
