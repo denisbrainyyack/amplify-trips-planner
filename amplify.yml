@@ -1,0 +1,25 @@
+version: 1
+#backend:
+#  phases:
+#    # IMPORTANT - Please verify your build commands
+#    build:
+#      commands:
+#        - '# Execute Amplify CLI with the helper script'
+#        - amplifyPush --simple
+frontend:
+  phases:
+    build:
+      commands:
+        - flutter pub get
+        - flutter build ios --release --no-codesign
+#        - flutter build apk --split-per-abi --no-tree-shake-icons
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: build/app/outputs/flutter-apk/
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .dart_tool/
+      - build/
+      - pubspec.yaml
